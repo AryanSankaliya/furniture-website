@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  height: 80px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  box-sizing: border-box;
+}
+
+/* Left section */
+.header-left {
+  display: flex;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+
+}
+
+.logo {
+  height: 50px;
+  width: auto;
+}
+
+.brand-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* Middle section */
+.header-middle {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-link {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+}
+
+.nav-link:hover {
+  color: #C5A44D;
+  transform: scale(1.15);
+
+}
+
+/* Right section */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.icon {
+  margin-top: 20px;
+  height: 40px;
+  color: black;
+  width: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 15px;
+  }
+
+  .header-middle {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .brand-name {
+    font-size: 1.2rem;
+  }
+
+  .icon {
+    height: 20px;
+    width: 20px;
+  }
+}
