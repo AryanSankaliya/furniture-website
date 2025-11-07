@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import "./Header.css";
 import { FaShoppingCart, FaSearch, FaRegUser, FaRegHeart } from "react-icons/fa";
+import CartSideBar from '../CartSideBar/CartSideBar';
 
 
 
 function Header() {
+
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
     return (
         <div className='header'>
             {/* Left section */}
@@ -34,9 +38,12 @@ function Header() {
                     <FaRegHeart />
                 </Link>
                 <Link to="/cart" className="icon">
-                    <FaShoppingCart />
+                    <FaShoppingCart onClick={() => { setIsCartOpen(true) }} />
                 </Link>
             </div>
+
+            {isCartOpen && <CartSideBar onClose={() => setIsCartOpen(false)} />}    
+                
         </div>
     )
 }

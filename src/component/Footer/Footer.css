@@ -16,7 +16,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* ---------- Description ---------- */
+/*  Description  */
 .description {
     width: 30%;
 }
@@ -35,7 +35,7 @@
     font-size: 14px;
 }
 
-/* ---------- Links & Help ---------- */
+/* Links & Help  */
 .link,
 .help {
     display: flex;
@@ -52,16 +52,15 @@
     margin-bottom: 25px;
 }
 
-/* 👇 This keeps both columns aligned */
 .link {
     margin-right: 50px;
 }
 
 .help {
-    margin-top: 0; /* ensures both start at same height */
+    margin-top: 0; 
 }
 
-/* ---------- Link Styles ---------- */
+/* Link Styles  */
 .link a,
 .help a {
     margin-top: 30px;
@@ -78,7 +77,7 @@
     color: #555;
 }
 
-/* ---------- Newsletter ---------- */
+/*  Newsletter  */
 .newsletter {
     display: flex;
     flex-direction: column;
@@ -139,7 +138,7 @@
     margin-top: 5px;
 }
 
-/* ---------- Bottom Bar ---------- */
+/* Bottom Bar  */
 .bottom-bar {
     width: 100%;
     text-align: center;

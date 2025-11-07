@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
-import { FaShareAlt, FaHeart } from "react-icons/fa";
+import React, { useState, useContext } from 'react'
+import { FaShareAlt } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { CartContext } from "../CartContext/CartProvider";
 import "./ProductGrid.css"
 
 
 
 function ProductGrid({ products }) {
 
-      const [visibleCount, setVisibleCount] = useState(10);
+    const [visibleCount, setVisibleCount] = useState(10);
+    const { addToCart } = useContext(CartContext);
+     const [liked, setLiked] = useState(false);
 
     return (
         <>
@@ -23,15 +27,18 @@ function ProductGrid({ products }) {
                                 </span>
 
                                 <div className="overlay">
-                                    <button className="add-btn">Add to cart</button>
+                                    <button className="add-btn" onClick={() => addToCart(item)}>Add to cart</button>
                                     <div className="icon-row">
                                         <div className="icon-item">
                                             <FaShareAlt className="icon" />
                                             <p className="icon-text">Share</p>
                                         </div>
-                                        <div className="icon-item">
-                                            <FaHeart className="icon" />
-                                            <p className="icon-text">Like</p>
+                                        <div
+                                            className={`icon-item ${liked ? "liked" : ""}`}
+                                            onClick={() => setLiked(!liked)}
+                                        >
+                                            {liked ? <FaHeart className="icon" /> : <FaRegHeart className="icon" />}
+                                            <p className="icon-text">{liked ? "Liked" : "Like"}</p>
                                         </div>
                                     </div>
                                 </div>

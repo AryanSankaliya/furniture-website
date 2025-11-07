@@ -134,7 +134,7 @@
     background: #967626;
 }
 
-/* NEXT IMAGE (half visible) */
+/* NEXT IMAGE  */
 .next-image {
     width: 30%;
     height: 300px;
@@ -172,7 +172,6 @@
     position: absolute;
     top: 50%;
     right: 10px;
-    /* adjust as needed */
     transform: translateY(-50%);
     z-index: 10;
 }
