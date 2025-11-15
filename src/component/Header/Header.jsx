@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import "./Header.css";
 import { FaShoppingCart, FaSearch, FaRegUser, FaRegHeart } from "react-icons/fa";
@@ -8,6 +8,7 @@ import CartSideBar from '../CartSideBar/CartSideBar';
 
 
 function Header() {
+   const navigate = useNavigate(); 
 
     const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -16,14 +17,14 @@ function Header() {
             {/* Left section */}
             <div className='header-left'>
                 <img src={logo} alt="" className='logo' />
-                <h2 className='brand-name'>Furniro</h2>
+                <h2 className='brand-name' onClick={ () => navigate('/home')}>Furniro</h2>
             </div>
             {/* middle section */}
             <nav className='header-middle'>
                 <Link to='/' className='nav-link'>Home</Link>
-                <Link to='/' className='nav-link'>Shop</Link>
-                <Link to='/' className='nav-link'>About</Link>
-                <Link to='/' className='nav-link'>Contact</Link>
+                <Link to='/shop' className='nav-link'>Shop</Link>
+                <Link to='/about' className='nav-link'>About</Link>
+                <Link to='/contact' className='nav-link'>Contact</Link>
             </nav>
 
             {/* header-rigth */}
@@ -37,13 +38,13 @@ function Header() {
                 <Link to="/wishlist" className="icon">
                     <FaRegHeart />
                 </Link>
-                <Link to="/cart" className="icon">
-                    <FaShoppingCart onClick={() => { setIsCartOpen(true) }} />
+                <Link to="#" className="icon" onClick={() => setIsCartOpen(true)}>
+                    <FaShoppingCart />
                 </Link>
             </div>
 
-            {isCartOpen && <CartSideBar onClose={() => setIsCartOpen(false)} />}    
-                
+            {isCartOpen && <CartSideBar onClose={() => setIsCartOpen(false)} />}
+
         </div>
     )
 }

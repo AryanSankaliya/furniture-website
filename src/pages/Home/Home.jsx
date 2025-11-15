@@ -23,7 +23,7 @@ function Home() {
             <Header />
             <HeroSection />
             <BrowseRange />
-            <ProductGrid products={products} />
+            <ProductGrid products={products} showButton={true} pagination={false} />
             <InspirationCarousel products={products}/>
             <MasonryGallery products={products}/>
             <Footer />

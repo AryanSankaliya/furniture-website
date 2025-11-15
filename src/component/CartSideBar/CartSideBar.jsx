@@ -4,11 +4,12 @@ import { CartContext } from "../CartContext/CartProvider";
 import { CiShoppingBasket } from "react-icons/ci";
 import { AiOutlineClose } from "react-icons/ai";
 
-function CartSidebar({ isOpen ,onClose }) {
-  const { cartItems, removeFromCart } = useContext(CartContext);
+
+function CartSidebar({ isOpen, onClose }) {
+  const { cartItems = [], removeFromCart } = useContext(CartContext);
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.qty, 0);
 
-       useEffect(() => {
+  useEffect(() => {
     document.body.classList.add("sidebar-overlay");
     return () => {
       document.body.classList.remove("sidebar-overlay");
@@ -19,7 +20,7 @@ function CartSidebar({ isOpen ,onClose }) {
     <div className="cart-sidebar">
       <div className="cart-header">
         <h2>Shopping Cart</h2>
-        <button className="close-btn" onClick={onClose}><CiShoppingBasket/></button>
+        <button className="close-btn" onClick={onClose}><CiShoppingBasket /></button>
       </div>
 
       <div className="cart-body">
@@ -28,12 +29,16 @@ function CartSidebar({ isOpen ,onClose }) {
         ) : (
           cartItems.map((item) => (
             <div className="cart-item" key={item.id}>
-              <img src={item.images[0]} alt={item.name} className="cart-item-img" />
+              <img
+                src={item.images && item.images.length > 0 ? item.images[0] : "https://via.placeholder.com/100"}
+                alt={item.title}
+                className="cart-item-img"
+              />
               <div className="cart-item-info">
                 <h4>{item.title}</h4>
-                <p>{item.qty} × Rs. {item.price}</p>
+                <p>{item.qty} × Rs. {item.price || 0}</p>
               </div>
-              <button className="remove-btn" onClick={() => removeFromCart(item.id)}><AiOutlineClose/></button>
+              <button className="remove-btn" onClick={() => removeFromCart(item.id)}><AiOutlineClose /></button>
             </div>
           ))
         )}

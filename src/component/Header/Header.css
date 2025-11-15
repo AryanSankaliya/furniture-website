@@ -15,6 +15,7 @@
   align-items: center;
   padding: 12px 30px;
   box-sizing: border-box;
+  
 }
 
 /* Left section */
@@ -33,6 +34,8 @@
 .brand-name {
   font-size: 1.6rem;
   font-weight: 700;
+  cursor: pointer;
+
 }
 
 /* Middle section */
@@ -43,7 +46,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-.nav-link {
+.nav-link  {
   color: black;
   text-decoration: none;
   font-weight: 500;
@@ -102,4 +105,27 @@
     height: 20px;
     width: 20px;
   }
+}
+
+.cart-msg {
+  position: fixed;
+  bottom: 20px; /* ya top-right */
+  right: 20px;
+  background-color: #B88E2F;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  animation: fadein 0.3s, fadeout 0.3s 1.7s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeout {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(20px); }
 }
