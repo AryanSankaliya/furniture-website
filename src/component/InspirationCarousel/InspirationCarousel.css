@@ -1,4 +1,4 @@
-.inspiration-section {
+.insp-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,12 +10,12 @@
 }
 
 /* LEFT SIDE */
-.inspiration-left {
+.insp-left {
     flex: 0.4;
     font-family: "Poppins", sans-serif;
 }
 
-.inspiration-left .title {
+.insp-title {
     font-size: 2.5rem;
     font-weight: 700;
     color: #3a3a3a;
@@ -23,7 +23,7 @@
     line-height: 1.2;
 }
 
-.inspiration-left .desc {
+.insp-desc {
     color: #666;
     margin-bottom: 28px;
     line-height: 1.6;
@@ -31,7 +31,7 @@
     max-width: 400px;
 }
 
-.explore-btn {
+.insp-btn {
     background-color: #b88e2f;
     color: #fff;
     padding: 12px 28px;
@@ -43,53 +43,42 @@
     transition: all 0.3s ease;
 }
 
-.explore-btn:hover {
+.insp-btn:hover {
     background-color: #a17e2a;
     transform: scale(1.05);
 }
 
 /* RIGHT SIDE */
-.inspiration-right {
+.insp-right {
     flex: 0.6;
     display: flex;
     gap: 20px;
     overflow: hidden;
 }
 
-.slide-container {
+.insp-slide {
     display: flex;
     gap: 20px;
     align-items: center;
 }
 
-.main-image {
+.insp-main-img {
     background-color: #fdf2e7;
     border-radius: 12px;
-
-}
-
-.slide-container .main-image {
-    width: 70%;
-}
-
-.slide-container .next-image {
-    width: 30%;
-}
-
-.main-image {
     position: relative;
     width: 70%;
     height: 450px;
     overflow: hidden;
 }
 
-.main-image img {
-    width: 100% !important; 
+.insp-main-img img {
+    width: 100% !important;
     height: 100%;
     object-fit: cover;
 }
 
-.overlay-box {
+/* Overlay */
+.insp-overlay {
     position: absolute;
     bottom: 20px;
     left: 20px;
@@ -97,7 +86,7 @@
     padding: 15px 20px;
 }
 
-.overlay-box p {
+.insp-overlay p {
     font-size: 14px;
     color: #616161;
     margin-bottom: 5px;
@@ -105,15 +94,15 @@
     font-weight: 500;
 }
 
-.overlay-box h3 {
+.insp-overlay h3 {
     font-size: 20px;
     font-weight: 600;
     color: #3A3A3A;
     font-family: "Poppins";
-
 }
 
-.arrow-btn {
+/* Arrow button */
+.insp-arrow-btn {
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -130,19 +119,19 @@
     justify-content: center;
 }
 
-.arrow-btn:hover {
+.insp-arrow-btn:hover {
     background: #967626;
 }
 
-/* NEXT IMAGE  */
-.next-image {
+/* NEXT IMAGE */
+.insp-next-img {
     width: 30%;
     height: 300px;
     overflow: hidden;
     position: relative;
 }
 
-.next-image img {
+.insp-next-img img {
     width: 100%;
     height: 85%;
     object-fit: cover;
@@ -168,7 +157,8 @@
     opacity: 1;
 }
 
-.rigth-arrow {
+/* RIGHT ARROW BUTTON */
+.insp-right-arrow {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -176,7 +166,7 @@
     z-index: 10;
 }
 
-.custom-next {
+.insp-next-btn {
     background-color: #fff;
     color: #b88e2f;
     border: none;
@@ -190,10 +180,9 @@
     justify-content: center;
     transition: all 0.3s ease;
     box-shadow: 0px 1px 3px #3A3A3A;
-
 }
 
-.custom-next:hover {
+.insp-next-btn:hover {
     background-color: #967626;
     color: white;
 }

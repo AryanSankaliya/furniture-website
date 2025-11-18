@@ -7,6 +7,7 @@ import data from '../../../public/data/data.json'
 
 import Footer from '../../component/Footer/Footer'
 import SemiFooter from '../../component/SemiFooter/SemiFooter'
+import PageHeader from '../../component/PageHeader/PageHeader'
 
 
 
@@ -14,21 +15,7 @@ function Shop() {
   return (
     <>
       <Header />
-
-      <div className="shop-hero">
-        <img
-          src={hero_section}
-          alt="Hero"
-          className="hero-bg"
-        />
-        <div className="hero-content">
-          <p>Shop</p>
-          <div className='path'>
-            <span className='home'>Home &gt;</span>
-            <span className='shop'>&nbsp;shop</span>
-          </div>
-        </div>
-      </div>
+      <PageHeader title="Shop"/>
 
       <div className='hero-title'>
         <p>Discover our latest collection of premium furniture</p>

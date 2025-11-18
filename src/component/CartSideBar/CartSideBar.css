@@ -4,7 +4,8 @@
   font-family: "Poppins", sans-serif;
 }
 
-.cart-sidebar {
+/* MAIN SIDEBAR */
+.sidebar {
   position: fixed;
   top: 80px;
   right: 12px;
@@ -21,6 +22,7 @@
   will-change: transform;
 }
 
+/* OVERLAY */
 body.sidebar-overlay::before {
   content: "";
   position: fixed;
@@ -43,8 +45,8 @@ body.sidebar-overlay::before {
   }
 }
 
-
-.cart-header {
+/* HEADER */
+.sidebar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,23 +54,30 @@ body.sidebar-overlay::before {
   padding-bottom: 15px;
   font-weight: 600;
   font-size: 13px;
-
 }
 
-.close-btn {
+.sidebar-close-btn {
   background: none;
   border: none;
   font-size: 18px;
   cursor: pointer;
 }
 
-.cart-body {
+/* BODY */
+.sidebar-body {
   flex: 1;
   overflow-y: auto;
   margin-top: 15px;
 }
 
-.cart-item {
+.sidebar-empty-msg {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+}
+
+/* ITEM */
+.sidebar-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -77,32 +86,32 @@ body.sidebar-overlay::before {
   padding-bottom: 10px;
 }
 
-.cart-item-info h4 {
-  color: #000000;
-  font-weight: 400;
-  font-size: 15px;
-}
-
-.cart-item-info p {
-  color: #B88E2F;
-  font-weight: 500;
-  font-size: 13px;
-}
-
-
-.cart-item-img {
+.sidebar-item-img {
   width: 60px;
   height: 60px;
   object-fit: cover;
   border-radius: 6px;
 }
 
-.cart-item-info {
+.sidebar-item-info {
   flex: 1;
   margin-left: 10px;
 }
 
-.remove-btn {
+.sidebar-item-info h4 {
+  color: #000;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.sidebar-item-info p {
+  color: #B88E2F;
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* REMOVE BUTTON */
+.sidebar-remove-btn {
   background: white;
   border: none;
   color: #9F9F9F;
@@ -112,12 +121,13 @@ body.sidebar-overlay::before {
   cursor: pointer;
 }
 
-.remove-btn:hover {
+.sidebar-remove-btn:hover {
   color: #9F9F9F;
   background-color: white;
 }
 
-.cart-footer {
+/* FOOTER */
+.sidebar-footer {
   border-top: 1px solid #ddd;
   padding-top: 10px;
   font-weight: bold;
@@ -127,12 +137,12 @@ body.sidebar-overlay::before {
   align-items: center;
 }
 
-.cart-footer .left {
+.sidebar-footer .left {
   font-weight: 400;
   color: #000000;
 }
 
-.cart-footer .right {
+.sidebar-footer .right {
   font-weight: 600;
   color: #B88E2F;
 }

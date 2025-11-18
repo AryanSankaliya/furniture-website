@@ -7,130 +7,138 @@
   font-family: "Poppins", sans-serif;
 }
 
-.product-detail-container {
+/* MAIN CONTAINER */
+.pd-container {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   gap: 30px;
   padding: 30px 5%;
   background: #fff;
 }
 
 /* LEFT SIDE */
-.left-side {
+.pd-left {
   display: flex;
   gap: 20px;
 }
 
-.image-gallery {
+.pd-gallery {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.image-gallery img {
+.pd-gallery img {
   width: 80px;
   height: 80px;
   object-fit: cover;
   border-radius: 6px;
   cursor: pointer;
   border: 1px solid #ddd;
+  transition: border 0.25s ease, transform 0.25s ease; 
 }
 
-.main-image img {
-  width: 380px;
+.pd-gallery img:hover {
+  border: 3px solid #daa520;
+  transform: scale(1.05); 
+}
+
+
+.pd-main-img img {
+  width: 480px;
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
 
 /* RIGHT SIDE */
-.right-side {
+.pd-right {
   flex: 1;
 }
 
-.product-info h2 {
+.pd-title {
   font-size: 24px;
   font-weight: 400;
   margin-bottom: 10px;
-  color: #000000;
+  color: #000;
 }
 
-.price {
+.pd-price {
   font-size: 20px;
   font-weight: 500;
   color: #9F9F9F;
   margin-bottom: 10px;
 }
 
-.review {
+/* REVIEW */
+.pd-review {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 15px;
 }
 
-.stars {
+.pd-stars {
   display: flex;
   gap: 3px;
 }
 
-.review-count {
+.pd-review-count {
   font-size: 14px;
   color: #9F9F9F;
 }
 
-.desc {
+/* DESCRIPTION */
+.pd-desc {
   font-size: 15px;
-  color: #000000;
+  color: #000;
   line-height: 1.5;
   margin-bottom: 20px;
 }
 
-/* SIZE */
-.size-section, .color-section {
+/* SIZE SECTION */
+.pd-size-sec,
+.pd-color-sec {
   margin-bottom: 20px;
   color: #9F9F9F;
-
 }
 
-.label {
+.pd-label {
   font-weight: 500;
   margin-bottom: 6px;
 }
 
-.sizes {
+.pd-sizes {
   display: flex;
   gap: 10px;
 }
 
-.size-btn {
+.pd-size-btn {
   padding: 6px 12px;
   border: 1px solid #F9F1E7;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #F9F1E7;
+  background: #F9F1E7;
   color: black;
   transition: 0.3s;
 }
 
-.size-btn:focus{
-  background-color: #daa520;
-  color: white;
-}
-
-.size-btn:hover {
+.pd-size-btn:hover {
   background: white;
   color: #daa520;
 }
 
+.pd-size-btn:focus {
+  background: #daa520;
+  color: #fff;
+}
+
 /* COLORS */
-.colors {
+.pd-colors {
   display: flex;
   gap: 10px;
 }
 
-.color {
+.pd-color {
   width: 22px;
   height: 22px;
   border-radius: 50%;
@@ -138,26 +146,27 @@
   cursor: pointer;
 }
 
-.purple { background: #6a0dad; }
-.black { background: #000; }
-.gold { background: #daa520; }
+.pd-purple { background: #6a0dad; }
+.pd-black { background: #000; }
+.pd-gold { background: #daa520; }
 
 /* CART ROW */
-.cart-row {
+.pd-cart-row {
   display: flex;
   align-items: center;
   gap: 15px;
   margin: 25px 0;
 }
 
-.qty-box {
+.pd-qty-box {
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
   border-radius: 6px;
 }
 
-.qty-box button {
+.pd-minus,
+.pd-plus {
   background: none;
   border: none;
   padding: 6px 12px;
@@ -166,66 +175,71 @@
   color: black;
 }
 
-.qty-box button:hover {
-  background-color: #daa520;
-  color: #fff;
-  border-color: #daa520;
+.pd-minus:hover,
+.pd-plus:hover {
+  background: #daa520;
+  color: white;
 }
 
-.qty-box span {
+.pd-qty-box span {
   padding: 0 10px;
 }
 
-.add-cart {
+.pd-add-cart {
   background: white;
   color: #000;
   border: 1px solid black;
   padding: 10px 20px;
-  /* border: none; */
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.add-cart:hover {
+.pd-add-cart:hover {
   background: #daa520;
   border: none;
   color: white;
 }
 
 /* META SECTION */
-.product-meta {
+.pd-meta {
   border-top: 1px solid #D9D9D9;
   padding-top: 20px;
   font-size: 15px;
   color: #9F9F9F;
 }
 
-.meta-row {
-  font-weight: 400;
+.pd-meta-row {
   display: flex;
-  align-items: center;
   gap: 8px;
   margin-bottom: 10px;
 }
 
-.meta-label {
+.pd-meta-label {
   width: 90px;
-  font-weight: 400;
+  color: #000;
 }
 
-.meta-icons {
+.pd-meta-sep {
+  color: #000;
+}
+
+.pd-meta-value {
+  color: #000;
+}
+
+.pd-socials {
   display: flex;
   gap: 12px;
 }
 
-.meta-icons a {
+.pd-socials a {
   font-size: 16px;
   color: #000;
-  
 }
 
-.toast {
+/* TOAST */
+.pd-toast {
   position: fixed;
   right: 20px;
   bottom: 20px;
@@ -245,6 +259,3 @@
   80% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; transform: translateY(20px); }
 }
-
-
-

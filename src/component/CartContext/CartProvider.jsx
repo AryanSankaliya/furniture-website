@@ -12,18 +12,20 @@ export function CartProvider({ children }) {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product) => {
+  const addToCart = (product , qty=1) => {
     const existing = cartItems.find((item) => item.id === product.id);
+
     if (existing) {
       setCartItems(
         cartItems.map((item) =>
-          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+          item.id === product.id ? { ...item, qty: item.qty + qty } : item
         )
       );
     } else {
-      setCartItems([...cartItems, { ...product, qty: 1 }]);
+      setCartItems([...cartItems, { ...product, qty: qty }]);
     }
   };
+
 
   const removeFromCart = (id) => {
     setCartItems(cartItems.filter((item) => item.id !== id));

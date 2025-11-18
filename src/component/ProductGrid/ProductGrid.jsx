@@ -30,19 +30,18 @@ function ProductGrid({ products = [], showHeading = true, showButton = true, pag
     const [showWishlistMsg, setShowWishlistMsg] = useState(false);
     const [wishlistMsg, setWishlistMsg] = useState("");
 
-    const handleAddToCart = ( e , item) => {
+    const handleAddToCart = ( e , item , qty = 1) => {
          e.stopPropagation();
         const cartItemAddtocart = {
             id: item.id,
             title: item.title || item.name,
             price: item.price || 0,
             images: item.images && item.images.length > 0 ? item.images : item.img ? [item.img] : [],
-            qty: 1
+            qty: qty
         };
 
 
         addToCart(cartItemAddtocart);
-
         setMsgText(`${cartItemAddtocart.title} added to cart!`);
         setShowMsg(true);
         setTimeout(() => setShowMsg(false), 2000);
@@ -63,8 +62,6 @@ function ProductGrid({ products = [], showHeading = true, showButton = true, pag
 
 
     }
-
-
 
     return (
         <>
@@ -87,7 +84,7 @@ function ProductGrid({ products = [], showHeading = true, showButton = true, pag
                                 </span>
 
                                 <div className="overlay">
-                                    <button className="add-btn" onClick={(e) => { handleAddToCart( e , item) }}>Add to cart</button>
+                                    <button className="add-btn" onClick={ (e) => { handleAddToCart(e , item) }}>Add to cart</button>
                                     <div className="icon-row">
                                         <div className="icon-item">
                                             <FaShareAlt className="icon" />
@@ -153,4 +150,4 @@ function ProductGrid({ products = [], showHeading = true, showButton = true, pag
     )
 }
 
-export default ProductGrid
+export default ProductGrid 

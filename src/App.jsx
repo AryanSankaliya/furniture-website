@@ -6,6 +6,7 @@ import Contact from './pages/Contact/Contact';
 import NotFound from './pages/NotFound/NotFound';
 import { ToastContainer } from 'react-toastify';
 import ProductDescription from './pages/ProductDescription/ProductDescription';
+import Cart from './pages/Cart/Cart';
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:id" element={<ProductDescription />} />
-
+        <Route path="/cart" element={<Cart />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
