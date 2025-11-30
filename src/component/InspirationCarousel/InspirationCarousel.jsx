@@ -5,8 +5,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./InspirationCarousel.css";
+import { useNavigate } from 'react-router-dom';
 
 function InspirationCarousel({ products }) {
+    const navigate = useNavigate();
     const swiperRef = useRef(null);
     const limitedProducts = products.slice(0, 8);
 

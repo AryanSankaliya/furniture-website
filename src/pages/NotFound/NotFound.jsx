@@ -27,8 +27,8 @@ const NotFound = () => {
           The furniture you are looking for might have been moved or is temporarily unavailable.
         </p>
         
-        <button className="home-button">
-          <span className="button-text" onClick={() => navigate("/")}>Back to Home</span>
+        <button className="home-button" onClick={() => navigate("/")}>
+          <span className="button-text" >Back to Home</span>
           <div className="button-hover-effect"></div>
         </button>
       </div>

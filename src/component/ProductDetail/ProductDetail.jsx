@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
@@ -8,14 +8,18 @@ import { CartContext } from '../CartContext/CartProvider';
 function ProductDetail({ product }) {
     const [mainImg, setMainImg] = useState(product.images[0]);
     const navigate = useNavigate();
+    useEffect(() => {
+        setMainImg(product.images[0]);
+    }, [product]);
 
     const { addToCart } = useContext(CartContext);
     const [qty, setQty] = useState(1);
-    const [showMsg, setShowMsg] = useState(false);
 
-    // const handleAddToCart = () => {
-    //     addToCart(product , qty);
-    // };
+    const reviews = useMemo(() => {
+        const num = Math.floor(Math.random() * (100000 - 1000 + 1)) + 1000;
+        return `${Math.floor(num / 1000)}k`;
+    }, [product]);
+
 
     return (
         <>
@@ -58,10 +62,7 @@ function ProductDetail({ product }) {
                             </span>
 
                             <span className="pd-review-count">
-                                {(() => {
-                                    const num = Math.floor(Math.random() * (100000 - 1000 + 1)) + 1000;
-                                    return `${Math.floor(num / 1000)}k Customer Reviews`;
-                                })()}
+                                {reviews}
                             </span>
                         </div>
 

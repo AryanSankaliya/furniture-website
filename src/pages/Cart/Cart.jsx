@@ -7,11 +7,13 @@ import { CartContext } from "../../component/CartContext/CartProvider";
 import { FaTrash } from "react-icons/fa";
 import "./Cart.css"
 import Footer from '../../component/Footer/Footer'
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
+  const navigate = useNavigate();
 
-  const { cartItems , removeFromCart   } = useContext(CartContext)
-   const total = cartItems.reduce(
+  const { cartItems, removeFromCart , updateQty  } = useContext(CartContext)
+  const total = cartItems.reduce(
     (acc, item) => acc + item.price * item.qty,
     0
   );
@@ -31,7 +33,7 @@ function Cart() {
           </div>
 
           {/* PRODUCT ROW */}
-          {cartItems.map((item , index) => (
+          {cartItems.map((item, index) => (
             <div className="cart-row" key={index}>
               <div className="product-info">
                 <img
@@ -44,11 +46,19 @@ function Cart() {
 
               <p className="price">Rs. {(item.price).toLocaleString("en-IN")}</p>
 
-              <input type="number" className="qty-box" value={(item.qty)} readOnly />
+              <input
+                type="number"
+                className="qty-box"
+                value={item.qty}
+                onChange={(e) => updateQty(item.id, Number(e.target.value))}
+                min="1"
+              />
+
+
 
               <p className="subtotal">Rs. {(item.price * item.qty).toLocaleString("en-IN")} </p>
 
-              <FaTrash className="delete-icon" onClick={()=> removeFromCart(item.id)} />
+              <FaTrash className="delete-icon" onClick={() => removeFromCart(item.id)} />
             </div>
 
           ))}
@@ -69,7 +79,7 @@ function Cart() {
             <p className="total-price">Rs. {total.toLocaleString("en-IN")}</p>
           </div>
 
-          <button className="checkout-btn">Check Out</button>
+          <button className="checkout-btn" onClick={() => navigate("/checkout")}>Check Out</button>
         </div>
       </div>
       <SemiFooter />

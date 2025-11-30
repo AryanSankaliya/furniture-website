@@ -5,6 +5,17 @@
   padding: 0;
 }
 
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1500;
+}
+
+
 /* Main Header */
 .header {
   height: 80px;

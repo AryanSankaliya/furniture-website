@@ -14,7 +14,6 @@ function ProductGrid({ products = [], showHeading = true, showButton = true, pag
 
     const [visibleCount, setVisibleCount] = useState(10);
     const { addToCart } = useContext(CartContext);
-    const [liked, setLiked] = useState(false);
 
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = Math.ceil(products.length / itemsPerPage);
@@ -123,7 +122,18 @@ function ProductGrid({ products = [], showHeading = true, showButton = true, pag
             )}
 
             {pagination && (
+                // prev btn 
                 <div className="pagination-btn-container">
+
+                    {currentPage > 1 && (
+                        <button   className="pagination-btn" onClick={() => setCurrentPage(currentPage - 1)}>
+                            Prev
+                        </button>
+                    )
+
+                    }
+
+                    {/* number page  */}
                     {Array.from({ length: totalPages }, (_, i) => (
                         <button
                             key={i}
@@ -133,7 +143,7 @@ function ProductGrid({ products = [], showHeading = true, showButton = true, pag
                             {i + 1}
                         </button>
                     ))}
-
+                        {/* next btn  */}
                     {currentPage < totalPages && (
                         <button
                             className="pagination-btn"

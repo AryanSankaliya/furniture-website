@@ -7,6 +7,8 @@ import NotFound from './pages/NotFound/NotFound';
 import { ToastContainer } from 'react-toastify';
 import ProductDescription from './pages/ProductDescription/ProductDescription';
 import Cart from './pages/Cart/Cart';
+import About from './pages/About/About';
+import CheckOut from './pages/CheckOut/CheckOut';
 
 function App() {
 
@@ -16,8 +18,10 @@ function App() {
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/about" element={<About />} />
         <Route path="/shop/:id" element={<ProductDescription />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<CheckOut />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -8,20 +8,10 @@ function CartSidebar({ isOpen, onClose }) {
   const { cartItems = [], removeFromCart } = useContext(CartContext);
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.qty , 0);
 
-  useEffect(() => {
-    document.body.classList.add("sidebar-overlay");
-    return () => {
-      document.body.classList.remove("sidebar-overlay");
-    };
-  }, [isOpen]);
-
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <h2>Shopping Cart</h2>
-        <button className="sidebar-close-btn" onClick={onClose}>
-          <CiShoppingBasket />
-        </button>
+        <p>Shopping Cart</p>
       </div>
 
       <div className="sidebar-body">
@@ -42,7 +32,7 @@ function CartSidebar({ isOpen, onClose }) {
 
               <div className="sidebar-item-info">
                 <h4>{item.title}</h4>
-                <p>{item.qty} × Rs. {item.price}</p>
+                <p>{item.qty} × Rs. {(item.price).toLocaleString()}</p>
               </div>
 
               <button
@@ -58,7 +48,7 @@ function CartSidebar({ isOpen, onClose }) {
 
       <div className="sidebar-footer">
         <span className="left">Subtotal:</span>
-        <span className="right">Rs. {subtotal}.00</span>
+        <span className="right">Rs. {subtotal.toLocaleString()}.00</span>
       </div>
     </div>
   );

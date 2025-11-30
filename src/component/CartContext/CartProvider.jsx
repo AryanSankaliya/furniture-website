@@ -12,7 +12,18 @@ export function CartProvider({ children }) {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const addToCart = (product , qty=1) => {
+  const updateQty = (id, newQty) => {
+    if (newQty < 1) return; // prevent invalid qty
+
+    setCartItems(prev =>
+      prev.map(item =>
+        item.id === id ? { ...item, qty: newQty } : item
+      )
+    );
+  };
+
+
+  const addToCart = (product, qty = 1) => {
     const existing = cartItems.find((item) => item.id === product.id);
 
     if (existing) {
@@ -34,7 +45,7 @@ export function CartProvider({ children }) {
   const clearCart = () => setCartItems([]);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, updateQty }}>
       {children}
     </CartContext.Provider>
   );

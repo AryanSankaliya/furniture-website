@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import "./Header.css";
@@ -8,6 +8,18 @@ import CartSideBar from '../CartSideBar/CartSideBar';
 function Header() {
     const navigate = useNavigate();
     const [isCartOpen, setIsCartOpen] = useState(false);
+
+    useEffect(() => {
+    if (isCartOpen) {
+        document.body.style.overflow = 'hidden'; // Disable scroll
+    } else {
+        document.body.style.overflow = 'auto';   // Enable scroll
+    }
+
+    return () => {
+        document.body.style.overflow = 'auto'; // Cleanup
+    };
+}, [isCartOpen]);
 
     return (
         <div className="header">
@@ -44,9 +56,19 @@ function Header() {
                 >
                     <FaShoppingCart />
                 </Link>
+                {isCartOpen && (
+                    <>
+                        <div className="cart-overlay" onClick={() => setIsCartOpen(false)}></div>
+                        <CartSideBar
+                            isOpen={isCartOpen}
+                            onClose={() => setIsCartOpen(false)}
+                        />
+                    </>
+                )}
+
             </div>
 
-            {isCartOpen && <CartSideBar onClose={() => setIsCartOpen(false)} />}
+            {/* {isCartOpen && <CartSideBar onClose={() => setIsCartOpen(false)} />} */}
         </div>
     )
 }
