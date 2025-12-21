@@ -91,9 +91,9 @@ function ProductDetail({ product }) {
                         {/* ADD TO CART */}
                         <div className="pd-cart-row">
                             <div className="pd-qty-box">
-                                <button className='pd-minus' onClick={() => setQty(prev => (prev > 1 ? prev - 1 : 1))}>-</button>
+                                <button className='pd-minus' onClick={() => setQty(prev => (prev > 1  ? prev - 1 : 1))}>-</button>
                                 <span>{qty}</span>
-                                <button className='pd-plus' onClick={() => setQty(prev => prev + 1)}>+</button>
+                                <button className='pd-plus' onClick={() => setQty(prev => (prev < 5 ? prev + 1 : 5))}>+</button>
                             </div>
                             <button className="pd-add-cart" onClick={() => {
                                 addToCart(product, qty);

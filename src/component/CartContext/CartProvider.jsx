@@ -12,6 +12,23 @@ export function CartProvider({ children }) {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
 
+   const [likedItems, setLikedItems] = useState(() => {
+    const stored = localStorage.getItem("likedItems");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("likedItems", JSON.stringify(likedItems));
+  }, [likedItems]);
+
+  const toggleLike = (id) => {
+    setLikedItems(prev =>
+      prev.includes(id)
+        ? prev.filter(item => item !== id)
+        : [...prev, id]
+    );
+  };
+
   const updateQty = (id, newQty) => {
     if (newQty < 1) return; // prevent invalid qty
 
@@ -45,7 +62,7 @@ export function CartProvider({ children }) {
   const clearCart = () => setCartItems([]);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart, updateQty }}>
+    <CartContext.Provider value={{ cartItems,likedItems , toggleLike, addToCart, removeFromCart, clearCart, updateQty }}>
       {children}
     </CartContext.Provider>
   );

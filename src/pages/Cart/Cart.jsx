@@ -52,6 +52,7 @@ function Cart() {
                 value={item.qty}
                 onChange={(e) => updateQty(item.id, Number(e.target.value))}
                 min="1"
+                max="5"
               />
 
 

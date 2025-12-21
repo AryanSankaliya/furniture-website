@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { useNavigate } from "react-router-dom";
 import { FaShareAlt } from "react-icons/fa";
 import { FaRegHeart, FaHeart } from "react-icons/fa";
-import { CartContext } from "../CartContext/CartProvider";
+import { CartContext, CartProvider } from "../CartContext/CartProvider";
 import "./ProductGrid.css"
 import Toast from "../Toast/Toast"
 
@@ -25,7 +25,8 @@ function ProductGrid({ products = [], showHeading = true, showButton = true, pag
     const [showMsg, setShowMsg] = useState(false);
     const [msgText, setMsgText] = useState("");
 
-    const [likedItems, setLikedItems] = useState([]);
+    const{likedItems , toggleLike} = useContext(CartContext)
+
     const [showWishlistMsg, setShowWishlistMsg] = useState(false);
     const [wishlistMsg, setWishlistMsg] = useState("");
 
@@ -48,26 +49,23 @@ function ProductGrid({ products = [], showHeading = true, showButton = true, pag
 
     const handleLike = (e , item) => {
         e.stopPropagation();
+
         const isLiked = likedItems.includes(item.id);
+        toggleLike(item.id)
+
         if (!isLiked) {
-            setLikedItems([...likedItems, item.id]);
             setWishlistMsg(`${item.title || item.name} added to wishlist!`);
             setShowWishlistMsg(true);
 
             setTimeout(() => setShowWishlistMsg(false), 2000);
-        } else {
-            setLikedItems(likedItems.filter(id => id !== item.id));
-        }
+        } 
 
 
     }
-
     return (
         <>
             {showMsg && <Toast className="cart-msg">{msgText}</Toast>}
             {showWishlistMsg && <Toast className="wishlist-msg">{wishlistMsg}</Toast>}
-
-
 
             <div className="products">
                 {showHeading && <h2 className="product-heading">Our Products</h2>}

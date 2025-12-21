@@ -23,7 +23,10 @@
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto;
     gap: 30px;
+    justify-items: center; 
 }
 
 .product-card {

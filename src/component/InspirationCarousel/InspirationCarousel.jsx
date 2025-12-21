@@ -14,7 +14,7 @@ function InspirationCarousel({ products }) {
 
     return (
         <div className="insp-section">
-            
+
             {/* Left Side */}
             <div className="insp-left">
                 <h2 className="insp-title">50+ Beautiful Rooms Inspiration</h2>
@@ -43,8 +43,8 @@ function InspirationCarousel({ products }) {
 
                                 {/* Main Image */}
                                 <div className="insp-main-img">
-                                    <img 
-                                        src={item.images?.[0]} 
+                                    <img
+                                        src={item.images?.[0]}
                                         alt={item.title}
                                     />
 
@@ -54,8 +54,6 @@ function InspirationCarousel({ products }) {
                                         </p>
                                         <h3>{item.title}</h3>
                                     </div>
-
-                                    <button className="insp-arrow-btn">→</button>
                                 </div>
 
                                 {/* Next Image */}
@@ -72,8 +70,8 @@ function InspirationCarousel({ products }) {
 
                                 {/* Manual Next Arrow */}
                                 <div className="insp-right-arrow">
-                                    <button 
-                                        className="insp-next-btn" 
+                                    <button
+                                        className="insp-next-btn"
                                         onClick={() => swiperRef.current?.slideNext()}
                                     >
                                         &gt;

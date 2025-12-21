@@ -4,7 +4,6 @@ import hero_section from '../../assets/hero section background.jpg'
 import './Shop.css'
 import ProductGrid from '../../component/ProductGrid/ProductGrid'
 import data from '../../../public/data/data.json'
-
 import Footer from '../../component/Footer/Footer'
 import SemiFooter from '../../component/SemiFooter/SemiFooter'
 import PageHeader from '../../component/PageHeader/PageHeader'
